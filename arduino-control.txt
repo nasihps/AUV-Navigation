@@ -1,0 +1,52 @@
+//arduino code
+
+int bulb1 = 2;  // replace with your bulb's pin
+int bulb2 = 3;  // replace with your bulb's pin
+int bulb3 = 4;  // replace with your bulb's pin
+int bulb4 = 5;  // replace with your bulb's pin
+
+void setup() {
+  pinMode(bulb1, OUTPUT);
+  pinMode(bulb2, OUTPUT);
+  pinMode(bulb3, OUTPUT);
+  pinMode(bulb4, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (Serial.available()) {
+    char command = Serial.read();
+    switch (command) {
+      case '1':
+        digitalWrite(bulb1, HIGH);
+        digitalWrite(bulb2, HIGH);
+        digitalWrite(bulb3, HIGH);
+        digitalWrite(bulb4, HIGH);
+        break;
+      case '2':
+        digitalWrite(bulb1, HIGH);
+        digitalWrite(bulb2, LOW);
+        digitalWrite(bulb3, LOW);
+        digitalWrite(bulb4, LOW);
+        break;
+      case '3':
+        digitalWrite(bulb1, LOW);
+        digitalWrite(bulb2, HIGH);
+        digitalWrite(bulb3, LOW);
+        digitalWrite(bulb4, LOW);
+        break;
+      case '4':
+        digitalWrite(bulb1, LOW);
+        digitalWrite(bulb2, LOW);
+        digitalWrite(bulb3, HIGH);
+        digitalWrite(bulb4, LOW);
+        break;
+      case '5':
+        digitalWrite(bulb1, LOW);
+        digitalWrite(bulb2, LOW);
+        digitalWrite(bulb3, LOW);
+        digitalWrite(bulb4, HIGH);
+        break;
+    }
+  }
+}
